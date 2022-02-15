@@ -14,14 +14,17 @@ class App extends React.Component {
   render() {
     return ( 
       <BrowserRouter>
-            {/* <nav>
+            <nav>
                 <Link to="/"> Homepage | </Link>
-                <Link to="/contact"> Contact | </Link>
-                <Link to="/about"> About </Link>
-            </nav> */}
+                <Link to="/weekly"> Weekly | </Link>
+                <Link to="/weekly-battle"> Weekly Battle |</Link>
+                <Link to="/popular"> Popular |</Link>
+                <Link to="/popular-battle"> Popular Battle |</Link>
+                <Link to="/favorites"> Favorites </Link>
+            </nav>
 
             <Switch>
-              {/*  exact = true  */}
+              
               <Route exact path="/" component={Home} />
               <Route exact path="/weekly" component={Weekly} /> 
               <Route exact path="/weekly-battle" component={WeeklyBattle} />
