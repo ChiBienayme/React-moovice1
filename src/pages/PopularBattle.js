@@ -1,7 +1,8 @@
 import React from 'react'
 import Card from '../components/Card';
+import styled from 'styled-components';
 
-//  Create a variable of storage
+//  Create a temporary variable of storage
 const history = [];
 
 class PopularBattle extends React.Component {
@@ -40,7 +41,7 @@ class PopularBattle extends React.Component {
 
       });
 
-      // If a movie has not yet been stored bu its ID, we push it into the temporary variable at the beginning  
+      // If a movie has not yet been stored by its ID, we push it into the temporary variable at the beginning  
       if (history.indexOf(id) === -1) {
         history.push(id);
       }
@@ -61,9 +62,9 @@ class PopularBattle extends React.Component {
                 <div>
                   {this.state.movies.length !== 0 && history.length < 10 && (
                   
-                    <>
+                    <StyledCard>
                       {/* Card Film 1  */}
-                      <button onClick={() => this.choseMovie(this.state.movies[this.state.currentBattle].id)} >
+                      <button className="button" onClick={() => this.choseMovie(this.state.movies[this.state.currentBattle].id)} >
 
                         <Card
                           image={this.state.movies[this.state.currentBattle].poster_path}
@@ -75,7 +76,7 @@ class PopularBattle extends React.Component {
                       </button>  
 
                       {/* Card Film 2  */}
-                      <button onClick={() => this.choseMovie(this.state.movies[this.state.currentBattle + 1].id)} >
+                      <button className="button" onClick={() => this.choseMovie(this.state.movies[this.state.currentBattle + 1].id)} >
 
                         <Card
                           image={this.state.movies[this.state.currentBattle + 1].poster_path}
@@ -86,7 +87,7 @@ class PopularBattle extends React.Component {
                         /> 
                       </button> 
 
-                    </>
+                    </StyledCard>
                       
                   )}
                 </div>
@@ -94,6 +95,22 @@ class PopularBattle extends React.Component {
         )
     }
 }
+
+const StyledCard = styled.button`
+  background-color: white;
+  display: flex;
+  padding: 0;
+  border: 0px solid white;
+
+  .button {
+    background-color: white;
+    width: 40vw;
+    height: 80px;
+    border: 0px solid white;
+  }
+  
+`;
+
 
 
 export default PopularBattle;
