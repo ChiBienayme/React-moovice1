@@ -4,6 +4,7 @@ import Card from '../components/Card';
 class Popular extends React.Component {
     constructor(){
         super();
+
         this.state= {
             movies: [],
         };
@@ -17,9 +18,7 @@ class Popular extends React.Component {
         .then((res) => {
         console.log("RES", res);
 
-        this.setState({ movies: res.results,
-
-                        });
+        this.setState({ movies: res.results });
         console.log(this.state.movies);
         })
         .catch(error => console.log(error));
