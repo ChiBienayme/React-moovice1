@@ -1,8 +1,8 @@
 import React from 'react'
 import Card from '../components/Card';
 
-
-
+//  Create a variable of storage
+const history = [];
 
 class PopularBattle extends React.Component {
     constructor(){
@@ -11,6 +11,9 @@ class PopularBattle extends React.Component {
         this.state= {
             movies: [],
             currentBattle: 0,
+
+            // localStorage.getItem("favorites"): Get the value of the specified local storage item
+            // JSON.parse(): convert text into a JavaScript object
             favorites: JSON.parse(localStorage.getItem("favorites")),
 
         };
@@ -37,7 +40,14 @@ class PopularBattle extends React.Component {
 
       });
 
-      
+      // If a movie has not yet been stored bu its ID, we push it into the temporary variable at the beginning  
+      if (history.indexOf(id) === -1) {
+        history.push(id);
+      }
+
+      // JSON.stringify: convert it into a string
+      // Save the history in console
+      localStorage.setItem("favorites", JSON.stringify(history));
     }
 
     render() {
@@ -45,9 +55,14 @@ class PopularBattle extends React.Component {
             <div>
                 <h1> Popular Battle </h1>
 
+                {/* Click 10 times for 20 films => Show the message */}
+                {history.length === 10 && <h3> Vous avez parcouru tous les films !</h3>}
+
                 <div>
-                  {this.state.movies.length !== 0 &&  (
+                  {this.state.movies.length !== 0 && history.length < 10 && (
+                  
                     <>
+                      {/* Card Film 1  */}
                       <button onClick={() => this.choseMovie(this.state.movies[this.state.currentBattle].id)} >
 
                         <Card
@@ -57,8 +72,9 @@ class PopularBattle extends React.Component {
                           description={this.state.movies[this.state.currentBattle].overview}
                           key={this.state.movies[this.state.currentBattle]}
                         /> 
-                      </button>   
+                      </button>  
 
+                      {/* Card Film 2  */}
                       <button onClick={() => this.choseMovie(this.state.movies[this.state.currentBattle + 1].id)} >
 
                         <Card
