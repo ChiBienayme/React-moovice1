@@ -1,17 +1,30 @@
-import React from 'react'
+import React from "react";
+import "./card.module.css"
 
 class Card extends React.Component {
   render() {
     return (
-      <div>
-          
-          <img src="https://www.pngall.com/wp-content/uploads/1/Film-High-Quality-PNG.png" width="200px" alt="" />
-           <p> Title: {this.props.title} </p>
-           <p> Year: {this.props.year} </p>
-           <p> Description: {this.props.description} </p>
+      <div className="col-6 col-12 d-flex flex-row">
+      
+          <div className="card col-4">
+            <img
+              className="img"
+              width="200px"
+              src={`https://image.tmdb.org/t/p/w300/${this.props.image}`}
+              alt=""
+            />
+
+            <div className="card-body">
+              <h5 className="card-title"> Title: {this.props.title} </h5>
+              <p className="card-text"> Year: {this.props.year} </p>
+              <p className="card-text"> Description: {this.props.description} </p>
+            </div>
+          </div>
+ 
       </div>
-    )
+      
+    );
   }
 }
 
-export default Card
+export default Card;
