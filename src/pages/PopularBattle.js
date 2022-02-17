@@ -3,7 +3,7 @@ import Card from '../components/Card';
 import styled from 'styled-components';
 
 //  Create a temporary variable of storage
-const history = [];
+const storage = [];
 
 class PopularBattle extends React.Component {
     constructor(){
@@ -42,13 +42,13 @@ class PopularBattle extends React.Component {
       });
 
       // If a movie has not yet been stored by its ID, we push it into the temporary variable at the beginning  
-      if (history.indexOf(id) === -1) {
-        history.push(id);
+      if (storage.indexOf(id) === -1) {
+        storage.push(id);
       }
 
       // JSON.stringify: convert it into a string
-      // Save the history in console
-      localStorage.setItem("favorites", JSON.stringify(history));
+      // Save the storage in console
+      localStorage.setItem("favorites", JSON.stringify(storage));
     }
 
     render() {
@@ -57,10 +57,10 @@ class PopularBattle extends React.Component {
                 <h1> Popular Battle </h1>
 
                 {/* Click 10 times for 20 films => Show the message */}
-                {history.length === 10 && <h3> Vous avez parcouru tous les films !</h3>}
+                {storage.length === 10 && <h3> Vous avez parcouru tous les films !</h3>}
 
                 <div>
-                  {this.state.movies.length !== 0 && history.length < 10 && (
+                  {this.state.movies.length !== 0 && storage.length < 10 && (
                   
                     <StyledCard>
                       {/* Card Film 1  */}
