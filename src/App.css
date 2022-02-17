@@ -1,12 +1,12 @@
-*{
-  margin: 5px;
-  padding: 5px;
+* {
+  margin: 1px;
+  padding: 3px;
 }
 .nav {
   font-size: 24px;
   font-weight: 200;
 }
-.nav-link:hover{
+.nav-link:hover {
   color: black;
   background-color: rgb(214, 229, 252);
 }
