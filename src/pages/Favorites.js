@@ -24,22 +24,26 @@ class Favorites extends React.Component {
   }
 
   handleDelete(id) {
-    this.setState ({
-      favIDs: this.state.movies.clear(),
-    });
-
-    // this.state.movies.keys().then((names) => {
-    //   names.forEach((name) => {
-    //     this.state.movies.delete(name);
-    //   });
+    // this.setState ({
+    //   favIDs: this.state.movies.clear(),
     // });
-    // alert('Complete Cache Cleared')
+
+    this.state.movies.id.keys().then((ids) => {
+      ids.forEach((id) => {
+        this.state.movies.delete(id);
+      });
+    });
+    alert('Complete Cache Cleared')
   }
 
   getStorage() {
-    //get the history favorites in console
+    //get the history favorites in console by getItem
     let storage = JSON.parse(localStorage.getItem("favorites")); 
-    let storedID = JSON.parse(localStorage.getItem("favIDs"));
+
+    // get the new favorite by setItem
+    let storedID = localStorage.setItem("favIDs", JSON.stringify(storage));
+    // let storedID = JSON.parse(localStorage.setItem("favIDs"));
+
     //combine 2 histories of favorites
     return storage.concat(storedID); 
    
@@ -71,7 +75,7 @@ class Favorites extends React.Component {
               <StyledCard className="container">
                   {this.state.movies.map((movie) => {
                     return (
-                        <>
+
                           <Card
                             image={movie.poster_path}
                             title={movie.title}
@@ -80,7 +84,6 @@ class Favorites extends React.Component {
                             key={movie}
                             />
   
-                        </>
                     )    
                   })}
               </StyledCard> 
