@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-moovice1/static/css/main.50d2111a.css",
+    "main.js": "/React-moovice1/static/js/main.9855c6cb.js",
+    "static/js/787.5fc92b4b.chunk.js": "/React-moovice1/static/js/787.5fc92b4b.chunk.js",
+    "index.html": "/React-moovice1/index.html",
+    "main.50d2111a.css.map": "/React-moovice1/static/css/main.50d2111a.css.map",
+    "main.9855c6cb.js.map": "/React-moovice1/static/js/main.9855c6cb.js.map",
+    "787.5fc92b4b.chunk.js.map": "/React-moovice1/static/js/787.5fc92b4b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50d2111a.css",
+    "static/js/main.9855c6cb.js"
+  ]
+}
